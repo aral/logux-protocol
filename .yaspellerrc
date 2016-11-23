@@ -2,6 +2,13 @@
   "lang": "en",
   "ignoreCapitalization": true,
   "dictionary": [
-    "Logux"
+    "Logux",
+    "JS",
+    "UUID",
+    "WebSockets",
+    "WebSocket",
+    "Subprotocol",
+    "subprotocol",
+    "SemVer"
   ]
 }
