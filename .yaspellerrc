@@ -7,7 +7,6 @@
     "UUID",
     "WebSockets",
     "WebSocket",
-    "Subprotocol",
     "subprotocol",
     "SemVer"
   ]
