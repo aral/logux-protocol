@@ -8,6 +8,7 @@
     "WebSockets",
     "WebSocket",
     "subprotocol",
-    "SemVer"
+    "SemVer",
+    "Versioning"
   ]
 }
