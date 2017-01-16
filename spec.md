@@ -157,7 +157,7 @@ or wrong time zone. Calculated time fix may be used to correct
 action’s `time` in [`sync`] messages.
 
 Right after this message receiver should send [`sync`] message with all
-new actions since last connection (all actionss on first connection).
+new actions since last connection (all actions on first connection).
 
 In most cases client will initiate connection, so server will answer `connected`.
 
