@@ -44,6 +44,7 @@ First string in message array is a message type. Possible types:
 * [`pong`]
 * [`sync`]
 * [`synced`]
+* [`debug`]
 
 If client received unknown type, it should send `wrong-format` error
 and continue communication.
@@ -59,6 +60,7 @@ Both will send `error`, `sync` and `synced`.
 [`ping`]:      #ping
 [`pong`]:      #pong
 [`sync`]:      #sync
+[`debug`]:     #debug
 
 ## `error`
 
@@ -244,3 +246,19 @@ time or time zone.
 ```
 
 Receiver should mark all actions with lower `added` time as synchronized.
+
+## `debug`
+
+Debug message contains debug type and debug data.
+
+```ts
+[
+  "debug",
+  string type,
+  any data
+]
+```
+
+Right now there are 1 possible debug type:
+
+* `error`: Logux server error. Debug data will contain stack trace.
