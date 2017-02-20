@@ -249,7 +249,7 @@ Receiver should mark all actions with lower `added` time as synchronized.
 
 ## `debug`
 
-`debug` message contains debug type and debug data.
+`debug` message contains debug information for developer.
 
 ```ts
 [
@@ -259,6 +259,6 @@ Receiver should mark all actions with lower `added` time as synchronized.
 ]
 ```
 
-Right now there are 1 possible debug type:
+Right now there is only one type:
 
-* `error`: Logux server error. Debug data will contain stack trace.
+* `error`: node catch a error. Debug data will contain error stack trace.
