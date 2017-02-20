@@ -249,7 +249,7 @@ Receiver should mark all actions with lower `added` time as synchronized.
 
 ## `debug`
 
-Debug message contains debug type and debug data.
+`debug` message contains debug type and debug data.
 
 ```ts
 [
