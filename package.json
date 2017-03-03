@@ -8,15 +8,14 @@
   "devDependencies": {
     "lint-staged": "^3.3.1",
     "pre-commit": "^1.2.2",
-    "yaspeller": "^3.0.0"
+    "yaspeller-ci": "^0.1.0"
   },
   "scripts": {
     "lint-staged": "lint-staged",
-    "test": "yaspeller *.md"
+    "test": "yaspeller-ci *.md"
   },
   "lint-staged": {
-    "*.md": "yaspeller",
-    "*.js": "eslint"
+    "*.md": "yaspeller-ci"
   },
   "pre-commit": [
     "lint-staged"
