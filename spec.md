@@ -206,7 +206,7 @@ Action object could contains any key and values, but it must contains at least
 `type` key with string value.
 
 Action metadata contains at least `id` and `time`.
-`time` is action’s creation time. It is a milliseconds from second time
+`time` is action’s creation time. It is a milliseconds since second time
 in `connected` message.
 
 `id` could be in 3 forms:
@@ -217,7 +217,7 @@ in `connected` message.
 number shift
 ```
 
-`shift` is a milliseconds from second time in `connected` message.
+`shift` is a milliseconds since second time in `connected` message.
 If `nodeId` is equal to sender node ID, it could be missed.
 `[shift, 0]` could be compressed to just `shift`.
 
