@@ -12,17 +12,6 @@ Main way is JSON over WebSocket Secure.
 
 [Logux logs]: https://github.com/logux/logux-core
 
-## Versions
-
-Protocol uses two major and minor numbers for version.
-
-```ts
-[number major, number minor]
-```
-
-If other client uses bigger `major`, you should send `wrong-protocol` error
-and close connection.
-
 ## Messages
 
 Communication is based on messages. Every message is a array with string
@@ -77,8 +66,8 @@ Error message contains error description and error type.
 Right now there are 7 possible errors:
 
 - `wrong-protocol`: client Logux protocol version is not supported by server.
-  Error options object will contain `supported` key with array
-  with supported major versions and `used` with used version.
+  Error options object will contain `supported` key with minimum supported
+  version and `used` with used version.
 * `wrong-format`: message is not correct JSON, is not a array or have no `type`.
   Error options will contain bad message string.
 * `unknown-message`: message’s type is not supported. Error options will contain
@@ -89,8 +78,8 @@ Right now there are 7 possible errors:
 * `timeout`: a timeout was reached. Errors options will contain timeout duration
   in milliseconds.
 * `wrong-subprotocol`: client application subprotocol version is not supported
-  by server. Error options object will contain `supported` key with array
-  with supported major versions and `used` with used version.
+  by server. Error options object will contain `supported` key with requirements
+  and `used` with used version.
 
 ## `connect`
 
@@ -99,15 +88,15 @@ After connection was started some client should send `connect` message to other.
 ```ts
 [
   "connect",
-  number[] protocol,
+  number protocol,
   string nodeId,
   number synced,
   (object options)?
 ]
 ```
 
-Receiver should check [protocol version] in second position in message array.
-If major version is different from receiver protocol,
+Receiver should check protocol version in second position in message array.
+If version is lower, than minimum supported version,
 it should send `wrong-protocol` error and close connection.
 
 Third position contains unique node name. Same node name is used in default
@@ -132,7 +121,6 @@ and close connection.
 
 In most cases client will initiate connection, so client will send `connect`.
 
-[protocol version]: #versions
 [SemVer]: http://semver.org/
 
 ## `connected`
@@ -142,7 +130,7 @@ This message is answer to received [`connect`] message.
 ```ts
 [
   "connected",
-  number[] protocol,
+  number protocol,
   string nodeId,
   [number start, number end],
   (object options)?
