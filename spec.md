@@ -205,12 +205,21 @@ This message array length is dynamic. For each action sender should add
 Action object could contains any key and values, but it must contains at least
 `type` key with string value.
 
-Action metadata contains `time` with action creation time
-and `id`:
+Action metadata contains at least `id` and `time`.
+`time` is action’s creation time. It is a milliseconds from second time
+in `connected` message.
+
+`id` could be in 3 forms:
 
 ```ts
-[number milliseconds, string nodeId, number orderInMs]
+[number shift, string nodeId, number orderInMs]
+[number shift, string orderInMs]
+number shift
 ```
+
+`shift` is a milliseconds from second time in `connected` message.
+If `nodeId` is equal to sender node ID, it could be missed.
+`[shift, 0]` could be compressed to just `shift`.
 
 Every action should have unique `id`. If receiver’s log already contains action
 with same `id`, receiver must silently ignore new action from `sync`.
