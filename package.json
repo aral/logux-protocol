@@ -6,9 +6,9 @@
   "license": "MIT",
   "repository": "logux/logux-protocol",
   "devDependencies": {
-    "lint-staged": "^4.0.0",
+    "lint-staged": "^4.0.1",
     "pre-commit": "^1.2.2",
-    "yaspeller-ci": "^0.4.0"
+    "yaspeller-ci": "^0.6.0"
   },
   "scripts": {
     "lint-staged": "lint-staged",
