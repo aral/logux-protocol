@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "logux/logux-protocol",
   "devDependencies": {
-    "lint-staged": "^4.2.2",
+    "lint-staged": "^4.3.0",
     "pre-commit": "^1.2.2",
     "yaspeller-ci": "^0.7.0"
   },
